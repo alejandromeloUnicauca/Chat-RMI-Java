@@ -31,7 +31,6 @@ public class UtilidadesRMIServidor
 	public static void RegistrarObjetoRemoto(Remote objetoRemoto, String dirIP, int numPuerto, String nombreObjeto)
 	{
 		String UrlRegistro = "rmi://"+dirIP+":"+numPuerto+"/"+nombreObjeto;
-                System.out.println(UrlRegistro);
 		try
 		{
 			Naming.rebind(UrlRegistro, objetoRemoto);

@@ -34,8 +34,11 @@ public class GUICliente extends javax.swing.JFrame {
     /**
      * Creates new form GUICliente
      */
-    public GUICliente() {
+    public GUICliente(IServidorUsuarios objRemoto) {
         initComponents();
+        this.objRemoto = objRemoto;
+        this.jPanel1.setBackground(Color.DARK_GRAY);
+        registrarse();
     }
 
     /**
@@ -249,7 +252,7 @@ public class GUICliente extends javax.swing.JFrame {
         try {
             System.out.println("");
             objRemoto.desconectar(objCliente, this.nickName);
-            this.dispose();
+            System.exit(0);
         } catch (RemoteException ex) {
             Logger.getLogger(GUICliente.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -286,12 +289,6 @@ public class GUICliente extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        GUICliente objGUICliente =  new GUICliente();
-        objGUICliente.conectarse();
-        objGUICliente.registrarse();
-        objGUICliente.getContentPane().setBackground(Color.DARK_GRAY);
-        objGUICliente.jPanel1.setBackground(Color.DARK_GRAY);
-        objGUICliente.setVisible(true);
         
         /*java.awt.EventQueue.invokeLater(new Runnable() {
             
