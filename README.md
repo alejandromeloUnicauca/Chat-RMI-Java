@@ -17,4 +17,4 @@ Este es un proyecto creado en Netbeans que permite el envio de mensajes de vario
 
 ## Usage
 
-Primero debe iniciar el servidor ejecutando el ServidorDeObjetos que esta en el paquete servidor, posteriormente puede iniciar el cliente o el administrador ejecutanto el ClienteDeObjetos.java que estan en cada paquete
+Primero debe iniciar el servidor ejecutando el ServidorDeObjetos.java que esta en el paquete servidor, posteriormente puede iniciar el cliente o el administrador ejecutanto el ClienteDeObjetos.java que estan en cada paquete. Para cada ejecucion se pide por consola la direccion ip y puerto el RMI registry
