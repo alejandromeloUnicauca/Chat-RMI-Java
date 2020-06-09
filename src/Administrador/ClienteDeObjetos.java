@@ -25,10 +25,15 @@ public class ClienteDeObjetos
             System.out.print("Cual es el número de puerto por el cual escucha el rmiregistry:");
             numPuertoRMIRegistry = UtilidadesConsola.leerEntero(); 
             
+            //se obtiene la referencia al objeto remoto del servidor
             objRemoto = (IServidorAdmin) UtilidadesRegistroC.obtenerObjRemoto(direccionIpRMIRegistry,numPuertoRMIRegistry, "servidorAdmin");
+            
             GUIAdmin objGui = new GUIAdmin(objRemoto);
             objGui.getContentPane().setBackground(Color.darkGray);
             objGui.setVisible(true);
+                
+            //Descomentar la linea de menu y comentar las 3 lineas anteriores si se quiere probar 
+            //por medio de la consola
             //MenuPrincipal();
 		
 	}

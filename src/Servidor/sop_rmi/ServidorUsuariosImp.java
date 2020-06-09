@@ -10,23 +10,25 @@ import Cliente.sop_rmi.ICliente;
 import Servidor.Entities.Mensaje;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.Hashtable;
-import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Esta clase inplementa los  metodos de la interfaz IservidorUsuarios
  * @author JhonMZ
  */
 public class ServidorUsuariosImp extends UnicastRemoteObject implements IServidorUsuarios{
     
+    /*Hashtable para almacenar las referencias de los 
+    usuarios que se conectan al servidor*/
     Hashtable<String, ICliente> clientes;
+    /* 
+    ArrayList para almacenar los mensajes que llegan al servidor
+    */
     ArrayList<Mensaje> mensajes;
     
     public ServidorUsuariosImp() throws RemoteException {
@@ -61,7 +63,7 @@ public class ServidorUsuariosImp extends UnicastRemoteObject implements IServido
     }
     
     /**
-     * @brief Envia a todos los usuarios la lista de usuarios conectados
+     * Envia a todos los usuarios la lista de usuarios conectados
      * @throws RemoteException 
      */
     private void enviarUsuariosConectados(){
@@ -95,7 +97,12 @@ public class ServidorUsuariosImp extends UnicastRemoteObject implements IServido
         }
         if(desconectados.size()>0)desconectarUsuarios(desconectados);
     }
-
+    
+    /**
+     * Recibe un mensaje de un usuario y lo reenvia a todos los usuarios conectados
+     * @param mensaje mensaje del usuario
+     * @param nickName nombre del usuario
+     */
     @Override
     public synchronized void enviarMensaje(String mensaje, String nickName){
         System.out.println("Mensaje de "+nickName+":"+mensaje);
@@ -119,7 +126,11 @@ public class ServidorUsuariosImp extends UnicastRemoteObject implements IServido
         if(desconectados.size()>0)desconectarUsuarios(desconectados);
         System.out.println("");
     }
-        
+    
+    /**
+     * Desconecta todos los usuarios que estan en el ArrayList
+     * @param desconectados ArrayList con los nickName de los usuarios que se van a desconectar
+     */
     private void desconectarUsuarios(ArrayList<String> desconectados){
         for (String nickName : desconectados) {
             try {
@@ -131,6 +142,13 @@ public class ServidorUsuariosImp extends UnicastRemoteObject implements IServido
         //enviarUsuariosConectados();
     }
     
+    /**
+     * Desconecta a un usuario
+     * @param usuario referencia del objeto remoto del usuario
+     * @param nickName nombre del usuario
+     * @return retorna true si se remueve al cliente de la lista de usuarios o false de lo contrario
+     * @throws RemoteException 
+     */
     @Override
     public synchronized boolean desconectar(ICliente usuario, String nickName) throws RemoteException {
         boolean res = false;
@@ -140,11 +158,19 @@ public class ServidorUsuariosImp extends UnicastRemoteObject implements IServido
         return res;
     }
     
+    /**
+     * obtiene el numero de usuarios conectados
+     * @return Cantidad de usuarios conectados
+     */
     public int getUsuariosConectados(){
         System.out.println("Usuarios conectados:"+clientes.size());
         return clientes.size();
     }
     
+    /**
+     * Retorna el numero de mensajes por minuto que llegan al servidor
+     * @return Cantidad de mensajes que llegan al servidor por minuto
+     */
     public float getMensajesPorMinuto(){
         float numMensajes = 0;
         if(mensajes.size() > 0){

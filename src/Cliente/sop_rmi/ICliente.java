@@ -9,11 +9,8 @@ package Cliente.sop_rmi;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.Set;
-
 /**
- *
+ * Esta interfaz define los metodos para que el  servidor pueda hacer sus callbacks
  * @author JhonMZ
  */
 public interface ICliente extends Remote{

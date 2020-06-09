@@ -10,7 +10,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 /**
- *
+ * Esta clase implementa los metodos de la interfaz IServidorAdmin
  * @author JhonMZ
  */
 public class ServidorAdminImp extends UnicastRemoteObject implements IServidorAdmin{
@@ -22,11 +22,21 @@ public class ServidorAdminImp extends UnicastRemoteObject implements IServidorAd
         this.objServidor = objServidor;
     }
     
+    /**
+     * Retorna la cantidad de usuarios conectados al chat
+     * @return Cantidad de usuarios conectados
+     * @throws RemoteException 
+     */
     @Override
     public int usuariosConectados() throws RemoteException {
            return objServidor.getUsuariosConectados();
     }
 
+    /**
+     * Retorna los mensajes que llegan al servidor por minuto
+     * @return Cantidad de mensajes por minuto
+     * @throws RemoteException 
+     */
     @Override
     public float mensajesPorMinuto() throws RemoteException {
         return objServidor.getMensajesPorMinuto();

@@ -348,6 +348,7 @@ public class GUICliente extends javax.swing.JFrame {
     private static void mostrarNotificaion(String nickName){
         System.out.println(nickName+" se ha conectado");
         new NoticeWindow(NoticeType.SUCCESS_NOTIFICATION, nickName+" se ha conectado", NoticeWindow.LONG_DELAY, NPosition.BOTTOM_RIGHT);
+        
     }
     
     public void fijarTexto(String mensaje){

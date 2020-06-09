@@ -11,7 +11,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
- *
+ * Se definen los metodos para los usuarios del chat
  * @author JhonMZ
  */
 public interface IServidorUsuarios extends Remote{

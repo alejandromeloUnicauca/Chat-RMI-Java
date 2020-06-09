@@ -10,7 +10,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
- *
+ * En esta interfaz se definen los metodos para el cliente Administrador
  * @author JhonMZ
  */
 public interface IServidorAdmin extends Remote{
