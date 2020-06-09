@@ -1,6 +1,6 @@
 # Chat-RMI-Java
 
-Este es un proyecto creado en Netbeans que permite el envio de mensajes de varios usuarios a un servidor que posteriormente mediante un callback le hace llegar los mensajes a todos los usuarios conectados, ademas tiene un administrador que puede consultar cuantos usuarios hay conectados y cuantos mensajes por minuto llegan al servidor. Consta de 3 paquetes principales:
+Este es un proyecto creado en Netbeans 8.2 que permite el envio de mensajes de varios usuarios a un servidor que posteriormente mediante un callback le hace llegar los mensajes a todos los usuarios conectados, ademas tiene un administrador que puede consultar cuantos usuarios hay conectados y cuantos mensajes por minuto llegan al servidor. Consta de 3 paquetes principales:
 
 ### Cliente
   * sop_rmi: Aqui encontrara la interfaz del usuario y su implementacion  que le permite al servidor hacer un callback de los mensajes y ademas notificar a los usuarios cuando un usuario nuevo se conecta
